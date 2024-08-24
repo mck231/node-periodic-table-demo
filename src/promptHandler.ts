@@ -33,21 +33,31 @@ export async function handleMainMenu() {
 }
 
 async function handleSymbolLookup(rl: readline.Interface, askQuestion: (query: string) => Promise<string>) {
-    const symbol = await askQuestion('Enter element symbol: ');
-    await lookupElement(symbol);
+    while (true) {
+        const symbol = await askQuestion('Enter element symbol (or type "exit" to exit): ');
+        if (symbol.toLowerCase() === 'exit') {
+            return;
+        }
+        await lookupElement(symbol);
 
-    const another = await askQuestion('Do you want to look up another element? (yes/no): ');
-    if (another.toLowerCase() !== 'yes' && another.toLowerCase() !== 'y') {
-        return;
+        const another = await askQuestion('Do you want to look up another element? (yes/no): ');
+        if (another.toLowerCase() !== 'yes' && another.toLowerCase() !== 'y') {
+            return;
+        }
     }
 }
 
 async function handlePeriodLookup(rl: readline.Interface, askQuestion: (query: string) => Promise<string>) {
-    const period = await askQuestion('Enter period number (1-7): ');
-    await lookupPeriod(period);
+    while (true) {
+        const period = await askQuestion('Enter period number (1-7) (or type "exit" to exit): ');
+        if (period.toLowerCase() === 'exit') {
+            return;
+        }
+        await lookupPeriod(period);
 
-    const another = await askQuestion('Do you want to look up another period? (yes/no): ');
-    if (another.toLowerCase() !== 'yes' && another.toLowerCase() !== 'y') {
-        return;
+        const another = await askQuestion('Do you want to look up another period? (yes/no): ');
+        if (another.toLowerCase() !== 'yes' && another.toLowerCase() !== 'y') {
+            return;
+        }
     }
 }
