@@ -3,3 +3,5 @@
 /src/index.js
 /src/lookupElement.js
 /src/promptHandler.js
+/node_modules/
+/.idea/
