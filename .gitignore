@@ -1,0 +1,5 @@
+# Project exclude paths
+/data/setupDatabase.js
+/src/index.js
+/src/lookupElement.js
+/src/promptHandler.js
