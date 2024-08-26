@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info {
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display{
+/*    can i have some css that makes the text large and black color*/
+    font-size: 30px;
+    color: black;
+}

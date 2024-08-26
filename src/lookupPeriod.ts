@@ -1,7 +1,7 @@
-import {open} from "sqlite";
+import { open } from "sqlite";
 import sqlite3 from "sqlite3";
 
-export async function lookupPeriod(periodNumber: string) {
+export async function lookupPeriod(periodNumber: string): Promise<string[]> {
     const db = await open({
         filename: 'periodic_table.db',
         driver: sqlite3.Database
@@ -16,11 +16,9 @@ export async function lookupPeriod(periodNumber: string) {
 
     if (periodGroup.length === 0) {
         console.log(`The period number: ${periodNumber}. Does not exist in the current Periodic Table.`);
-        return;
+        return [];
     }
-    console.log(`Elements in period ${periodNumber}:`);
-    periodGroup.forEach((el: { name: string }) => {
-        console.log(el.name);
-    });
+    console.log(`Elements in period ${periodNumber}: ${periodGroup.map(el => el.name).join(', ')}`);
 
+    return periodGroup.map((el: { name: string }) => el.name);
 }
